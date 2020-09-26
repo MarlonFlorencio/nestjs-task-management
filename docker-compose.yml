@@ -1,0 +1,17 @@
+version: '3'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  task_db:
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: task_management_db
+      POSTGRES_USER: task_management
+      POSTGRES_PASSWORD: 123456
